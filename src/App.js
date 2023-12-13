@@ -23,17 +23,17 @@ const App = () => {
   return (
     <>
       <Header currentUser={currentUser}/>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments}/>} />
-        <Route path="/myapartments" element={<ApartmentProtectedIndex />} />
-        <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments}/>} />
-        <Route path="/apartmentnew" element={<ApartmentNew />} />
-        <Route path="/apartmentedit/:id" element={<ApartmentEdit />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments}/>} />
+          <Route path="/myapartments" element={<ApartmentProtectedIndex />} />
+          <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments}/>} />
+          <Route path="/apartmentnew" element={<ApartmentNew />} />
+          <Route path="/apartmentedit/:id" element={<ApartmentEdit />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       <Footer />
     </>
   )
