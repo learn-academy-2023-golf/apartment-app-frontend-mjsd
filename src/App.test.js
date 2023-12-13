@@ -10,7 +10,7 @@ describe("<App /", () => {
       </BrowserRouter>
     )
 
-    const greeting = screen.getByText("Home")
+    const greeting = screen.getByText("Welcome to MJSD Apartments!")
     expect(greeting).toBeInTheDocument()
   })
 
@@ -22,7 +22,7 @@ describe("<App /", () => {
     )
 
     const heading = screen.getByRole('heading', {
-      name: /Home/i
+      name: /Welcome to MJSD Apartments!/i
     })
   })
 })
