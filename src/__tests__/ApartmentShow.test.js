@@ -1,16 +1,21 @@
 import { render, screen } from '@testing-library/react'
 import ApartmentShow from '../pages/ApartmentShow'
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import mockApartments from '../mockApartments'
 
 describe("<ApartmentShow/>", () => {
     render(
-        <BrowserRouter>
-            <ApartmentShow />
-        </BrowserRouter>
+        <MemoryRouter initialEntries={["/apartmentshow/1"]}>
+            <Routes>
+                <Route path="apartmentshow/:id" element={<ApartmentShow apartments={mockApartments} />}/>
+            </Routes>
+        </MemoryRouter>
     )
 
     it("renders without crashing", () => {
+        expect(screen.getByText(text => text.includes(mockApartments[0].bedrooms))).toBeInTheDocument()
+        expect(screen.getByText(text => text.includes(mockApartments[0].pets))).toBeInTheDocument()
+        expect(screen.getByText(text => text.includes(mockApartments[0].street))).toBeInTheDocument()
         expect(screen.getByText(text => text.includes("Apartment List"))).toBeInTheDocument();
     })
 
