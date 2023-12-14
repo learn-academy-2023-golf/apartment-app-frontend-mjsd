@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, FormGroup, Label, Input } from 'reactstrap'
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const SignUp = (user) => {
@@ -55,9 +55,9 @@ const SignUp = (user) => {
                 onChange={handleChange}
               />
             </FormGroup>
-            <button onClick={handleSubmit}>
+            <Button onClick={handleSubmit}>
                 Submit
-            </button>
+            </Button>
           </Form>
         </div>
       </div>
