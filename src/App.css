@@ -1,7 +1,32 @@
 .Header {
   background-color: black;
+  text-align: center;
 }
 
+/* Apartment Components */
+.apartments-body {
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.apartments-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.apartments-cards {
+  width: 270px;
+  margin: 20px;
+  color: black;
+  background-color: white;
+}
+
+/* SignIn Component */
 .SignIn{
   background-color: black;
   color: white;
