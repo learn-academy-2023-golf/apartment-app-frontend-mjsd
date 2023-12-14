@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './App.css';
 import mockUsers from "./mockUsers.js"
 import mockApartments from "./mockApartments.js"
-import {  Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import ApartmentEdit from "./pages/ApartmentEdit"
@@ -22,18 +22,18 @@ const App = () => {
   console.log("apartments", apartments)
   return (
     <>
-      <Header currentUser={currentUser}/>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments}/>} />
-          <Route path="/myapartments" element={<ApartmentProtectedIndex apartments={apartments} />} />
-          <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments}/>} />
-          <Route path="/apartmentnew" element={<ApartmentNew />} />
-          <Route path="/apartmentedit/:id" element={<ApartmentEdit />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+      <Header currentUser={currentUser} />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments} />} />
+        <Route path="/myapartments" element={<ApartmentProtectedIndex apartments={apartments} />} />
+        <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments} />} />
+        <Route path="/apartmentnew" element={<ApartmentNew />} />
+        <Route path="/apartmentedit/:id" element={<ApartmentEdit />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
     </>
   )

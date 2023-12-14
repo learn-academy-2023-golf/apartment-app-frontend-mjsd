@@ -15,8 +15,9 @@ const ApartmentIndex = ({apartments}) => {
                   <CardBody>
                     <div className="apartment-text">
                       <CardTitle><b>${apartment.price}/month</b></CardTitle>
-                      <CardSubtitle>{apartment.street}, {apartment.city}, {apartment.state}</CardSubtitle>
-                      <CardSubtitle>{apartment.bedrooms} Bedroom {apartment.bathrooms}, Bath</CardSubtitle>
+                      <CardSubtitle>{apartment.street}</CardSubtitle>
+                      <CardSubtitle>{apartment.city}, {apartment.state}</CardSubtitle>
+                      <CardSubtitle>{apartment.bedrooms} Bedroom, {apartment.bathrooms} Bath</CardSubtitle>
                     </div>
                     <NavLink to={`/apartmentshow/${apartment.id}`} className="nav-link">
                       <Button className='apartment-button'>More Details</Button>
