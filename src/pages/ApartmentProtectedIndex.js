@@ -4,7 +4,7 @@ import { Card, CardImg, CardBody,
   import { NavLink } from "react-router-dom"
 
 const ApartmentProtectedIndex = ({apartments, currentUser}) => {
-  const myApartments = apartments.filter(apartment => currentUser.id === apartment.user_id)
+  const myApartments = apartments?.filter(apartment => currentUser.id === apartment.user_id)
 
   console.log(myApartments)
   return (
@@ -18,8 +18,9 @@ const ApartmentProtectedIndex = ({apartments, currentUser}) => {
               <CardBody>
                 <div className="apartment-text">
                   <CardTitle><b>${apartment.price}/month</b></CardTitle>
-                  <CardSubtitle>{apartment.street}, {apartment.city}, {apartment.state}</CardSubtitle>
-                  <CardSubtitle>{apartment.bedrooms} Bedroom {apartment.bathrooms}, Bath</CardSubtitle>
+                  <CardSubtitle>{apartment.street}</CardSubtitle>
+                  <CardSubtitle>{apartment.city}, {apartment.state}</CardSubtitle>
+                  <CardSubtitle>{apartment.bedrooms} Bedroom, {apartment.bathrooms} Bath</CardSubtitle>
                 </div>
                 <NavLink to={`/apartmentshow/${apartment.id}`} className="nav-link">
                   <Button className='apartment-button'>More Details</Button>
