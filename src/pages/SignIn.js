@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Form, FormGroup, Label, Input } from 'reactstrap'
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const SignIn = () => {
@@ -47,9 +47,9 @@ const SignIn = () => {
                 onChange={handleChange}
               />
             </FormGroup>
-            <button onClick={handleSubmit}>
+            <Button onClick={handleSubmit}>
                 Sign In
-            </button>
+            </Button>
           </Form>
         </div>
       </div>
