@@ -18,8 +18,12 @@ import Signin from "./pages/SignIn"
 const App = () => {
   const [currentUser, setCurrentUser] = useState(mockUsers[0])
   const [apartments, setApartments] = useState(mockApartments)
-  console.log("currentUser", currentUser)
-  console.log("apartments", apartments)
+
+  const createApartment = (apartment) => {
+    
+  }
+  // console.log("currentUser", currentUser)
+  // console.log("apartments", apartments)
   return (
     <>
       <Header currentUser={currentUser} />
@@ -32,7 +36,7 @@ const App = () => {
           currentUser && <Route path="/myapartments" element={<ApartmentProtectedIndex currentUser={currentUser} apartments={apartments} />} />
         }
         <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments} />} />
-        <Route path="/apartmentnew" element={<ApartmentNew />} />
+        <Route path="/apartmentnew" element={<ApartmentNew createApartment={createApartment} />} />
         <Route path="/apartmentedit/:id" element={<ApartmentEdit />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
