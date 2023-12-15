@@ -22,6 +22,9 @@ const App = () => {
   const createApartment = (apartment) => {
     
   }
+  const editApartment = ({ apartments, id }) => {
+
+  }
   // console.log("currentUser", currentUser)
   // console.log("apartments", apartments)
   return (
@@ -37,7 +40,7 @@ const App = () => {
         }
         <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments} />} />
         <Route path="/apartmentnew" element={<ApartmentNew createApartment={createApartment} />} />
-        <Route path="/apartmentedit/:id" element={<ApartmentEdit />} />
+        <Route path="/apartmentedit/:id" element={<ApartmentEdit apartments={apartments} editApartment={editApartment} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
