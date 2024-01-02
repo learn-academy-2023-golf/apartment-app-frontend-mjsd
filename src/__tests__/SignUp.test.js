@@ -27,7 +27,7 @@ describe("<Home />", () => {
 
         screen.logTestingPlaygroundURL()
 
-        const username = screen.getByText("Username")
+        const username = screen.getByText("Email")
         expect(username).toBeInTheDocument()
         const password = screen.getByText("Password")
         expect(password).toBeInTheDocument()

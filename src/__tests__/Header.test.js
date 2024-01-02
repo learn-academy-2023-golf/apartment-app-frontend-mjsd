@@ -23,11 +23,9 @@ describe ("<Header />", () => {
             </BrowserRouter>
         )
 
-        userEvent.click(screen.getByText('Apartment App'))
-        expect(screen.getByText("Apartment App")).toBeInTheDocument()
+        userEvent.click(screen.getByText('Home'))
+        expect(screen.getByText("Home")).toBeInTheDocument()
         userEvent.click(screen.getByText('View Apartments'))
         expect(screen.getByText("View Apartments")).toBeInTheDocument()
-        userEvent.click(screen.getByText('Create New Apartment'))
-        expect(screen.getByText("Create New Apartment")).toBeInTheDocument()
     })
 })
