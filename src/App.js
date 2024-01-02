@@ -101,6 +101,18 @@ const App = () => {
     readApartments()
   }, [])
 
+  useEffect(() => {
+    readApartment()
+  }, [])
+
+
+  const readApartment = () => {
+    fetch("http://localhost:3000/apartments")
+      .then((response) => response.json())
+      .then((payload) => setApartments(payload))
+      .catch((error) => console.log(error))
+  }
+
   return (
     <>
       <Header currentUser={currentUser} signout={signout} />
