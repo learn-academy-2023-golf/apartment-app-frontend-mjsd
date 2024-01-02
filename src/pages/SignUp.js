@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const SignUp = ( {signUp} ) => {
+const SignUp = ( {signup} ) => {
 
   const formRef = useRef()
 
@@ -15,7 +15,7 @@ const SignUp = ( {signUp} ) => {
     const userInfo = {
       user: { email: data.email, password: data.password }
     }
-    signUp(userInfo)
+    signup(userInfo)
     navigate("/")
     e.target.reset()
   }
@@ -27,7 +27,7 @@ const SignUp = ( {signUp} ) => {
           <h2>Sign Up</h2>
         </div>
         <div className="SignIn2">
-          <Form ref={formRef} onSubmit={handleSubmit}>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <FormGroup>
               <Label for="email">
                 Email
@@ -54,9 +54,9 @@ const SignUp = ( {signUp} ) => {
                 type="password"
               />
               <br />
-              <a href="/signin">Submit</a>
+              <Input type="submit" value="Submit">Submit</Input>
             </FormGroup>
-          </Form>
+          </form>
         </div>
       </div>
     </>

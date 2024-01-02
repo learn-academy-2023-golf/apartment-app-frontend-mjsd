@@ -12,14 +12,12 @@ const SignIn = ( {signin} ) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const formData = new FormData(formRef.current)
-    console.log(formData)
     const data = Object.fromEntries(formData)
     const userInfo = {
       user: { email: data.email, password: data.password }
     }
-    console.log(userInfo)
     signin(userInfo)
-    // navigate("/")
+    navigate("/")
     e.target.reset()
   }
 
@@ -30,7 +28,7 @@ const SignIn = ( {signin} ) => {
           <h2>Sign In</h2>
         </div>
         <div className="SignIn2">
-          <Form ref={formRef} onSubmit={handleSubmit}>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <FormGroup>
               <Label for="email">
                 Username
@@ -49,8 +47,8 @@ const SignIn = ( {signin} ) => {
                 type="password"
               />
             </FormGroup>
-            <a href="/">Sign In</a>
-          </Form>
+            <Input type="submit" value="Submit">Sign In</Input>
+          </form>
         </div>
       </div>
     </>
