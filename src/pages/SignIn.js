@@ -1,23 +1,25 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const SignIn = () => {
+const SignIn = ( {signin} ) => {
 
-    const navigate = useNavigate()
+  const formRef = useRef()
 
-    const [userLogin, setUserLogin] = useState({
-        username: "",
-        password: "",
-    })
-    const handleChange = (e) => {
-        setUserLogin({ ...userLogin, [e.target.name]: e.target.value })
+  const navigate = useNavigate()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const formData = new FormData(formRef.current)
+    const data = Object.fromEntries(formData)
+    const userInfo = {
+      user: { email: data.email, password: data.password }
     }
-
-    const handleSubmit = () => {
-        navigate("/")
-      }
+    signin(userInfo)
+    navigate("/")
+    e.target.reset()
+  }
 
   return (
     <>
@@ -26,16 +28,15 @@ const SignIn = () => {
           <h2>Sign In</h2>
         </div>
         <div className="SignIn2">
-          <Form>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <FormGroup>
-              <Label for="name">
+              <Label for="email">
                 Username
               </Label>
               <Input
-                name="username"
-                placeholder="What is your username?"
-                type="text"
-                onChange={handleChange}
+                name="email"
+                placeholder="What is your email?"
+                type="email"
               />
               <Label for="password">
                 Password
@@ -43,14 +44,11 @@ const SignIn = () => {
               <Input
                 name="password"
                 placeholder="What is your password?"
-                type="text"
-                onChange={handleChange}
+                type="password"
               />
             </FormGroup>
-            <Button onClick={handleSubmit}>
-                Sign In
-            </Button>
-          </Form>
+            <Input type="submit" value="Submit">Sign In</Input>
+          </form>
         </div>
       </div>
     </>
