@@ -19,9 +19,6 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
   const [apartments, setApartments] = useState([])
 
-  const readApartments = () => {
-    
-  }
   const createApartment = (apartment) => {
     
   }
@@ -100,6 +97,13 @@ const App = () => {
     }
     readApartments()
   }, [])
+
+  const readApartments = () => {
+    fetch("http://localhost:3000/apartments")
+      .then((response) => response.json())
+      .then((payload) => setApartments(payload))
+      .catch((error) => console.log(error))
+  }
 
   return (
     <>
