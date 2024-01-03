@@ -3,26 +3,28 @@ import { useState } from 'react'
 import { Form, FormGroup, Label, Input, Button, Col } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
 
-const ApartmentNew = ({createApartment}) => {
+const ApartmentNew = ({createApartment, currentUser}) => {
   const navigate = useNavigate()
 
   const [newApartment, setNewApartment] = useState({
     street: "",
-      unit: "",
-      city: "",
-      state: "",
-      square_footage: "",
-      price: "",
-      bedrooms: "",
-      bathrooms: "",
-      pets: "",
-      image: ""
+    unit: "",
+    city: "",
+    state: "",
+    square_footage: "",
+    price: "",
+    bedrooms: "",
+    bathrooms: "",
+    pets: "",
+    image: "",
+    user_id: currentUser?.id
   })
   const handleChange = (e) => {
     setNewApartment({ ...newApartment, [e.target.name]: e.target.value })
   }
-
+  console.log(newApartment)
   const handleSubmit = () => {
+    createApartment(newApartment)
     navigate("/apartmentindex")
   }
 
@@ -33,7 +35,7 @@ const ApartmentNew = ({createApartment}) => {
           <h2>Create New Apartment Listing.</h2>
         </div>
         <div className="SignIn2">
-          <Form>
+          <form>
             <FormGroup>
               <Label for="street">
                 Street Name:
@@ -126,10 +128,10 @@ const ApartmentNew = ({createApartment}) => {
                 onChange={handleChange}
               />
             </FormGroup>
-            <Button onClick={handleSubmit}>
+            <Button onClick={handleSubmit} name="Submit">
                 Submit
             </Button>
-          </Form>
+          </form>
         </div>
       </div>
     </>

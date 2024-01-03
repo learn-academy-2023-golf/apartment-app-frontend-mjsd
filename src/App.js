@@ -19,9 +19,6 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
   const [apartments, setApartments] = useState([])
 
-  const createApartment = (apartment) => {
-    
-  }
   const editApartment = ({ apartments, id }) => {
 
   }
@@ -85,7 +82,7 @@ const App = () => {
       .then((payload) => {
         localStorage.removeItem("token")
         localStorage.removeItem("user")
-        setCurrentUser(null)
+        setCurrentUser()
       })
       .catch((error) => console.log("log out errors: ", error))
   }
@@ -105,6 +102,19 @@ const App = () => {
       .catch((error) => console.log(error))
   }
 
+  const createApartment = (apartment) => {
+    fetch("http://localhost:3000/apartments", {
+      body: JSON.stringify(apartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+      .then((response) => response.json())
+      .then(() => readApartments())
+      .catch((errors) => console.log(errors))
+  }
+
   return (
     <>
       <Header currentUser={currentUser} signout={signout} />
@@ -117,7 +127,7 @@ const App = () => {
           currentUser && <Route path="/myapartments" element={<ApartmentProtectedIndex currentUser={currentUser} apartments={apartments} />} />
         }
         <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments} />} />
-        <Route path="/apartmentnew" element={<ApartmentNew createApartment={createApartment} />} />
+        <Route path="/apartmentnew" element={<ApartmentNew createApartment={createApartment} currentUser={currentUser} />} />
         <Route path="/apartmentedit/:id" element={<ApartmentEdit apartments={apartments} editApartment={editApartment} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
