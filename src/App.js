@@ -19,10 +19,6 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
   const [apartments, setApartments] = useState([])
 
-  const editApartment = ({ apartments, id }) => {
-
-  }
-
   const signin = (userInfo) => {
     fetch("http://localhost:3000/login", {
       body: JSON.stringify(userInfo),
@@ -110,10 +106,24 @@ const App = () => {
       },
       method: "POST"
     })
-      .then((response) => response.json())
-      .then(() => readApartments())
-      .catch((errors) => console.log(errors))
+    .then((response) => response.json())
+    .then(() => readApartments())
+    .catch((errors) => console.log(errors))
+}
+
+  const updateApartment = ( apartment, id ) => {
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      body: JSON.stringify(apartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then((response) => response.json())
+    .then(() => readApartments())
+    .catch((errors) => console.log("Apartment update errors:", errors))
   }
+
 
   return (
     <>
@@ -128,11 +138,12 @@ const App = () => {
         }
         <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments} />} />
         <Route path="/apartmentnew" element={<ApartmentNew createApartment={createApartment} currentUser={currentUser} />} />
-        <Route path="/apartmentedit/:id" element={<ApartmentEdit apartments={apartments} editApartment={editApartment} />} />
+        <Route path="/apartmentedit/:id" element={<ApartmentEdit apartments={apartments} updateApartment={updateApartment} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
   )
 }
+
 export default App

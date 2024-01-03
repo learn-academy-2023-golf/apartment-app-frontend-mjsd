@@ -2,11 +2,10 @@ import React, { useState } from "react"
 import { Form, FormGroup, Input, Label, Button } from "reactstrap"
 import { useNavigate, useParams } from "react-router-dom"
 
-const ApartmentEdit = ({ apartments, updateApartment }) => {
+const ApartmentEdit = ({ apartments, updateApartment, currentUser }) => {
 
   const { id } = useParams()
   let currentApartment = apartments?.find((apartment) => apartment.id === +id)
-  
   
   const [editApartment, setEditApartment] = useState({
     street: currentApartment?.street,
@@ -18,8 +17,8 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
     bedrooms: currentApartment?.bedrooms,
     bathrooms: currentApartment?.bathrooms,
     pets: currentApartment?.pets,
-    image: currentApartment?.image
-
+    image: currentApartment?.image,
+    user_id: currentUser?.id
   })
 
   const handleChange = (e) => {
@@ -28,8 +27,8 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
   const navigate = useNavigate()
 
   const handleSubmit = () => {
-    updateApartment(editApartment, currentApartment.id)
-    navigate(`/Apartmentindex/${currentApartment.id}`)
+    updateApartment(editApartment, currentApartment?.id)
+    navigate("/apartmentindex")
   }
   return (
     <>
@@ -46,7 +45,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="street"
-                  value={editApartment.street}
+                  value={editApartment?.street}
                   type="text"
                   onChange={handleChange}
                 />
@@ -55,7 +54,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="unit"
-                  value={editApartment.unit}
+                  value={editApartment?.unit}
                   type="text"
                   onChange={handleChange}
                 />
@@ -64,7 +63,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="city"
-                  value={editApartment.city}
+                  value={editApartment?.city}
                   type="text"
                   onChange={handleChange}
                 />
@@ -73,7 +72,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="state"
-                  value={editApartment.state}
+                  value={editApartment?.state}
                   type="text"
                   onChange={handleChange}
                 />
@@ -82,7 +81,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="square_footage"
-                  value={editApartment.square_footage}
+                  value={editApartment?.square_footage}
                   type="number"
                   onChange={handleChange}
                 />
@@ -91,7 +90,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="price"
-                  value={editApartment.price}
+                  value={editApartment?.price}
                   type="text"
                   onChange={handleChange}
                 />
@@ -100,7 +99,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="bedrooms"
-                  value={editApartment.bedrooms}
+                  value={editApartment?.bedrooms}
                   type="number"
                   onChange={handleChange}
                 />
@@ -109,7 +108,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="bathrooms"
-                  value={editApartment.bathrooms}
+                  value={editApartment?.bathrooms}
                   type="number"
                   onChange={handleChange}
                 />
@@ -118,7 +117,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="pets"
-                  value={editApartment.pets}
+                  value={editApartment?.pets}
                   type="text"
                   onChange={handleChange}
                 />
@@ -127,7 +126,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
                 </Label>
                 <Input
                   name="image"
-                  value={editApartment.image}
+                  value={editApartment?.image}
                   type="textarea"
                   onChange={handleChange}
                 />
