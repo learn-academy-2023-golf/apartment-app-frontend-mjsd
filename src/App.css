@@ -1,20 +1,44 @@
-.Header {
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap');
+
+body {
+  font-family: 'Old Standard TT', serif;
   background-color: black;
+}
+
+.Header {
+  background-color: rgba(0, 0, 0, 0.907);
   display: flex;
   justify-content: center;
   justify-content: space-around;
   align-items: center;
+  font-size: 12px;
+  font-family: 'Old Standard TT', serif;
+  padding: 6px;
 }
 
-NavLink
+.Header img {
+  width: 10px;
+  height: 14px;
+}
+.home-h2{
+  padding-top: 90px;
+
+}
+
+h2 {
+  align-items: center;
+  font-size: 12px;
+  font-family: 'Old Standard TT', serif;
+}
 
 /* Apartment Components */
 .apartments-body {
   background-color: black;
   color: white;
   text-align: center;
-  height: 100vh;
+  height: auto;
   margin: 0 auto;
+  font-family: 'Old Standard TT', serif;
 }
 
 .apartments-flex {
@@ -22,6 +46,7 @@ NavLink
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: aliceblue;
 }
 
 .apartments-cards {
@@ -35,20 +60,34 @@ NavLink
 .SignIn{
   background-color: black;
   color: white;
+  
+  font-family: 'Old Standard TT', serif;
 }
 
 .SignIn1{
   padding-top: 75px;
   text-align: center;
+  /* padding-bottom: 375px; */
 }
 
 .SignIn2{
-  height: 100vh;
+  height: 250vh;
   padding-top: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 2px;
   display: flex;
   justify-content: center;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
+}
+
+footer {
+    height: 26vh;
+    margin: 0 1 rem;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: 'Old Standard TT', serif;
+    padding-top: 10px;
+    font-size: 12px;
 }
