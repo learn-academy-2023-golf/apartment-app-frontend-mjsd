@@ -22,7 +22,8 @@ const ApartmentNew = ({createApartment, currentUser}) => {
   const handleChange = (e) => {
     setNewApartment({ ...newApartment, [e.target.name]: e.target.value })
   }
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     createApartment(newApartment)
     navigate("/apartmentindex")
   }
