@@ -29,7 +29,7 @@ const ApartmentEdit = ({ apartments, updateApartment }) => {
 
   const handleSubmit = () => {
     updateApartment(editApartment, currentApartment.id)
-    navigate(`/Apartmentindex/${currentApartment.id}`)
+    navigate(`/apartmentshow/${currentApartment.id}`)
   }
   return (
     <>

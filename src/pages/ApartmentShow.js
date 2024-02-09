@@ -31,7 +31,7 @@ const ApartmentShow = ({ apartments }) => {
               <NavLink to={`/apartmentindex`} className="nav-link">
                 <Button className="apartment-button">Back to Listings</Button>
               </NavLink>
-              <NavLink to={"/apartmentedit/:id"} className="nav-link">
+              <NavLink to={`/apartmentedit/${currentApartment.id}`} className="nav-link">
                 <Button className="apartment-button">Edit Apartment</Button>
               </NavLink>
             </CardBody>
