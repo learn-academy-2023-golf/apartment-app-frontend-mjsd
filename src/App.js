@@ -120,9 +120,22 @@ const App = () => {
       },
       method: "POST"
     })
-      .then((response) => response.json())
-      .then(() => readApartments())
-      .catch((errors) => console.log(errors))
+    .then((response) => response.json())
+    .then(() => readApartments())
+    .catch((errors) => console.log(errors))
+}
+
+  const updateApartment = ( apartment, id ) => {
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      body: JSON.stringify(apartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then((response) => response.json())
+    .then(() => readApartments())
+    .catch((errors) => console.log("Apartment update errors:", errors))
   }
 
 
@@ -146,4 +159,5 @@ const App = () => {
     </>
   )
 }
+
 export default App

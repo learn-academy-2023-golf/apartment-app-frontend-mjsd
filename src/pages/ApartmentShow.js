@@ -28,7 +28,10 @@ const ApartmentShow = ({ apartments }) => {
                   <CardSubtitle>Pets: {currentApartment?.pets}</CardSubtitle>
                 </div>
               </div>
-              <NavLink to={`/apartmentindex`} className="nav-link">
+              <NavLink to={`/apartmentedit/${currentApartment.id}`} className="nav-link">
+                <Button className="apartment-button">Edit Listings</Button>
+              </NavLink>
+              <NavLink to={"/apartmentindex"} className="nav-link">
                 <Button className="apartment-button">Back to Listings</Button>
               </NavLink>
               <NavLink to={`/apartmentedit/${currentApartment.id}`} className="nav-link">
