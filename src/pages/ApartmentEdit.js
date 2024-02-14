@@ -27,6 +27,9 @@ const ApartmentEdit = ({ apartments, updateApartment, currentUser }) => {
   const navigate = useNavigate()
 
   const handleSubmit = () => {
+    updateApartment(editApartment, currentApartment.id)
+    navigate(`/apartmentshow/${currentApartment.id}`)
+
     updateApartment(editApartment, currentApartment?.id)
     navigate("/apartmentindex")
   }

@@ -19,6 +19,20 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
   const [apartments, setApartments] = useState([])
 
+  const updateApartment = ( apartments, id ) => {
+      fetch(`http://localhost:3000/apartments/${id}`,{
+        body: JSON.stringify(apartments),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method:"PATCH"
+      })
+      .then((response) => response.json())
+      .then(() => readApartments())
+      .catch((errors) => console.log("Apartment update error:", errors))
+
+  }
+
   const signin = (userInfo) => {
     fetch("http://localhost:3000/login", {
       body: JSON.stringify(userInfo),
